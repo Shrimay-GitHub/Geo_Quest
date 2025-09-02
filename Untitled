@@ -1,0 +1,82 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Silhouette - Guess the Country</title>
+    <link rel="stylesheet" href="./public/styles.css">
+</head>
+<body>
+    <div class="app-container" id="app">
+        <header class="header">
+            <h1>Geo Silhouette</h1>
+            <div class="game-stats">
+                <div class="stat" id="score">Score: 0</div>
+                <div class="stat" id="streak">Streak: 0</div>
+                <div class="stat" id="high-score">Best: 0</div>
+            </div>
+        </header>
+
+        <main class="game-container">
+            <div class="game-card" id="game-card">
+                <div class="map-container" id="map-container">
+                    <!-- SVG will be inserted here -->
+                </div>
+                
+                <div class="options-container" id="options-container">
+                    <!-- Options will be inserted here -->
+                </div>
+                
+                <div class="feedback-panel" id="feedback-panel" aria-live="polite">
+                    <!-- Feedback will be shown here -->
+                </div>
+                
+                <div class="controls">
+                    <button id="hint-btn" class="btn hint-btn" aria-label="Get a hint">Hint</button>
+                    <button id="next-btn" class="btn next-btn" disabled>Next</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="settings-panel">
+            <div class="setting-group">
+                <label for="mode-select">Mode:</label>
+                <select id="mode-select" class="setting-select">
+                    <option value="relaxed">Relaxed</option>
+                    <option value="timed">Timed (10s)</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="difficulty-select">Difficulty:</label>
+                <select id="difficulty-select" class="setting-select">
+                    <option value="easy">Easy</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </div>
+            
+            <button id="mute-btn" class="btn icon-btn" aria-label="Toggle sound" aria-pressed="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.84 14,18.7V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+                </svg>
+            </button>
+            
+            <button id="contrast-btn" class="btn icon-btn" aria-label="Toggle high contrast mode" aria-pressed="false">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="timer-container" id="timer-container">
+            <div class="timer-bar" id="timer-bar"></div>
+        </div>
+
+        <div id="confetti-container" class="confetti-container"></div>
+    </div>
+
+    <script type="module" src="./src/app.js"></script>
+</body>
+</html>
